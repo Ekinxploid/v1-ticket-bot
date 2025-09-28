@@ -8,6 +8,10 @@ module.exports = {
         // Kanal ID'sini args'tan al
         const channelId = args[0];
         
+        if (!channelId) {
+            return message.reply('❌ Kullanım: `.log-ayar #kanal` veya `.log-ayar <kanal-id>`');
+        }
+
         // Kanal ID'sini temizle (<#123456789> formatından 123456789'a)
         const cleanChannelId = channelId.replace(/[<#>]/g, '');
         const channel = message.guild.channels.cache.get(cleanChannelId);
